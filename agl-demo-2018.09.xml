@@ -89,7 +89,7 @@
   <project name="kraj/meta-altera" path="meta-altera" remote="github" revision="094f4c84da21e199134056f41dcf69f92cacdbd9" upstream="rocko"/>
 
   <!-- Synopsys HSDK platform -->
-  <project name="EvgeniiDidin/meta-synopsys" path="meta-synopsys" remote="github" revision="dcb8e823800259cc2f0b888319b0f3b968a09834"/>
+  <project name="EvgeniiDidin/meta-synopsys" path="meta-synopsys" remote="github" revision="29faeb00bbecd999ddfe09abc4095e0c8ba95beb"/>
 
   <!-- Image Security Analysis FrameWork (isafw) -->
   <!-- try master or disable -->
