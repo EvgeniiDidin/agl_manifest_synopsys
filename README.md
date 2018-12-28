@@ -102,13 +102,15 @@ The Radio application requires AM/FM Tuner plugged into HSDK board. Using arrows
 </p>
 
 ### HVAC
-The HVAC application is used for automotive climate control. Currently devices like ventilator or air conditioning are not supported on HSDK board. **NOTE:** scrolling temperature causes crash of HVAC application
+The HVAC application is used for automotive climate control. Currently devices like ventilator or air conditioning are not supported on HSDK board. **Note:** read *Known issues section 1*
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/hvac.png" align="center" height="480" width="320">
 </p>
 
 ### Navigation
-The Navigation application can simulate automotive driving on map. All movement changes are accompanied by the sound of a voice assistant. 
+The Navigation application can simulate automotive driving on map. All movement changes are accompanied by the sound of a voice assistant. This application requires navigation data, which is not provided by AGL build system.
+Download navigation data from [navi_data](agl.wismobi.com/data/japan_TR9/navi_data.tar.gz),
+then unpack this archive and put **navi_data** directory on /root partition in **/home/** direcotory
 Usage:
 1) Make a log click in some place of the map (similar to finger tap).
 2) When a point on the map is present, click the button on the top of right corner.
@@ -137,6 +139,13 @@ $ pacmd set-default-sink 1
 ```
 3) Bluetooth:
   * Usefull link: https://wiki.automotivelinux.org/bluetooth
-  * To reset any know pairings just remove everything in directory /var/lib/bluetooth/<bluetooth-adapter-mac>
+  * To reset any know pairings just remove everything in directory /var/lib/bluetooth/{bluetooth-adapter-mac}/
 
 ## Known issues
+1) Scrolling temperature in HVAC application causes crash.
+2) In runtime can happen unpredictable crash (usually in first few minutes). In this case reboot the board.
+3) Running all 8 applications can cause lack of available RAM. Before OOM killer kill HomeScreen application
+check free memory using *free* utility. If the number of free memory is less them 10000 run:
+```
+sync; echo 1 > /proc/sys/vm/drop_caches 
+```
