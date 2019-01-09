@@ -8,7 +8,7 @@ With Linux at its core, AGL is developing an open platform from the ground up th
 
 ## Prerequisites
 ### Software
-AGL demo image can only be built on a Linux development host, so either a real Linux host or a virtual machine with Linux installed in the client should be used.
+AGL demo image can only be built on a Linux development host, so either a Linux development host or a virtual machine with Linux installed in the client should be used.
 
 Before building AGL demo image it's important to make sure the build machine has all required packages installed. Please refer to Automotive Grade Linux official documentation where examples for different host Linux distributions are provided:
 http://docs.automotivelinux.org/master/docs/getting_started/en/dev/reference/source-code.html
@@ -40,14 +40,14 @@ http://docs.automotivelinux.org/master/docs/getting_started/en/dev/reference/sou
 ```
   source meta-agl/scripts/aglsetup.sh -m hsdk agl-demo agl-netboot agl-appfw-smack
 ```
-3. Build synopsys image (currently, the rootfs is used as initramfs)
+3. Build image for Synopsys ARC HSDK platform (currently, the rootfs is used as initramfs)
 ```
   bitbake agl-demo-platform
 ```
 ## Deploy and startup procedures
-To run image it requires microSD-card with a capacity of at least 8 GB.
+In order to run this image a microSD-card with a capacity of at least 8 GB is required.
    
-After build procedure have finished the artefacts are stored in **build/tmp/deploy/images/hsdk/** directory.
+After build procedure have finished the artifacts are stored in **build/tmp/deploy/images/hsdk/** directory.
 Deploy **agl-demo-platform-hsdk.wic.xz** file on microSD-card:
   * On Linux hosts, use dd command as follows:   
       ```xz -cd agl-demo-platform-hsdk.wic.xz | sudo dd of=/dev/mmcblkp0 bs=4M; sync```
@@ -61,42 +61,42 @@ bootm
 ```
 
 ## Running applications
-After boot on the screen you will see next main menu:
+After boot you will see the main menu on the screen:
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/main.png" align="center" height="480" width="320">
 </p>
-Here 8 of 9 applications are currently working. Poi application is not working currently due to incorrect geolocation. Tapping on round buttons will start an application. Using "Home" button on the top will swith screen to main menu.
+Currently 8 of the 9 available applications are working. POI application (Points of Interest) is not currently working due to incorrect geolocation. Tapping on round buttons will start the selectded application. Using the "Home" button on the top bar will return to main menu screen.
 
 ### Settings application
-The Settings application can be used to connect board via Bluetooth to smartphone and to WI-FI spot. Also it can show version info. Changing Date&Time is not changing real onboard time.
+The Settings application can be used to connect the board to a smartphone via Bluetooth and to a WI-FI hotspot. Also it can show version info. Note: Changing Date&Time does not change actual onboard time.
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/settings.png" align="center" height="480" width="320">
 </p>
-To connect HSDK board to smartphone using Bluetooth click on "Bluetooth" title. Then in the list of device click "Pair" button of the device you would like to connect, and on smartphone confirm connection. When the device is at the top of the list click "Connect" button. Under the name of the device MAC address and "Handsfree & AV Connection" title should appear.
+To connect the HSDK board to smartphone using Bluetooth click on "Bluetooth" title. Then in the list of device click "Pair" button of the device you would like to connect, and on smartphone confirm connection. When the device is at the top of the list click "Connect" button. Under the name of the device MAC address and "Handsfree & AV Connection" title should appear.
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/Bluetooth.png" align="center" height="480" width="320">
 </p>
 
 ### Mixer application
-The Mixer application can change sound volume of input and output audio devices.
+The Mixer application can change the sound volume of input and output audio devices.
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/mixer.png" align="center" height="480" width="320">
 </p>
 
 ### Mediaplayer
-The Mediaplayer is an application which can play audio files from smartphone using Bluetooth connection. Connect HSDK board to smatphone using "Settings"->Bluetooth, then open audioplayer on smartphone and play audiofile. 
+The Mediaplayer is an application which can play audio files from smartphone using Bluetooth connection. Connect HSDK board to the smartphone using "Settings"->Bluetooth, then open the audio player on smartphone and play audio file. 
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/mediaplayer.png" align="center" height="480" width="320">
 </p>
 
 ### Phone
-The Phone application requires established Bluetooth connection with smartphonw. Enter the number and press button with cellphone symblol. 
+The Phone application requires established Bluetooth connection with smartphone. Enter the number and press button with cellphone symbol. 
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/phone.png" align="center" height="480" width="320">
 </p>
 
 ### Radio
-The Radio application requires AM/FM Tuner plugged into HSDK board. Using arrows or slider it is possible to change radio frequency.
+The Radio application requires AM/FM Tuner plugged into the HSDK board. Using arrows or slider it is possible to change radio frequency to tune to a given station.
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/radio.png" align="center" height="480" width="320">
 </p>
@@ -121,12 +121,12 @@ Usage:
 
 
 ### Dashboard
-The Dashboard application is a monitor of car condition. Currently no sensors are supported to demonstrate capability of this application.
+The Dashboard application is a monitor of the car's condition. Currently no sensors are supported to demonstrate capability of this application.
 <p align="center">
  <img src="https://github.com/EvgeniiDidin/agl_manifest_synopsys/blob/master/screenshots/dashboard.png" align="center" height="480" width="320">
 </p>
 
-## Usefull tips
+## Useful tips
 1) *afm-util*  - utility, which can start application without GUI. 
 ```
 $ afm-util list
@@ -138,13 +138,13 @@ $ pactl list sinks short
 $ pacmd set-default-sink 1
 ```
 3) Bluetooth:
-  * Usefull link: https://wiki.automotivelinux.org/bluetooth
-  * To reset any know pairings just remove everything in directory /var/lib/bluetooth/{bluetooth-adapter-mac}/
+  * Useful link: https://wiki.automotivelinux.org/bluetooth
+  * To reset any known pairings just remove everything in directory /var/lib/bluetooth/{bluetooth-adapter-mac}/
 
 ## Known issues
 1) Scrolling temperature in HVAC application causes crash.
-2) In runtime can happen unpredictable crash (usually in first few minutes). In this case reboot the board.
-3) Running all 8 applications can cause lack of available RAM. Before OOM killer kill HomeScreen application
+2) Some crashes may be seen after running the application for several minutes (under investigation). If this happens, reboot the board to restore the system.
+3) Running all 8 applications can cause lack of available RAM. Before OOM killer kills the HomeScreen application
 check free memory using *free* utility. If the number of free memory is less them 10000 run:
 ```
 sync; echo 1 > /proc/sys/vm/drop_caches 
