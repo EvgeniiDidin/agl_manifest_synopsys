@@ -54,11 +54,7 @@ Deploy **agl-demo-platform-hsdk.wic.xz** file on microSD-card:
   * On Windows hosts, use "Win32 Disk Imager" utility, available here: https://sourceforge.net/projects/win32diskimager/
 
 Once the agl-demo-platform-hsdk.ext4 file is deployed on microSD-card, just insert it in the microSD-card slot of the HSDK and reset the board. Note DIP-switch BIM should be in 1:off, 2:on state while both BMC and BCS should be in 1: on, 2:on state.
-In u-Boot terminal run next commands:
-```
-fatload mmc 0:1
-bootm
-```
+
 
 ## Running applications
 After boot you will see the main menu on the screen:
