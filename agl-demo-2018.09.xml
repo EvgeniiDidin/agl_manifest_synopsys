@@ -31,7 +31,7 @@
   <project name="AGL/meta-agl-devel" path="meta-agl-devel" revision="08baf9383ee1e367e76058df81f658ce901b7e8d" />
   <project name="AGL/meta-agl-extra" path="meta-agl-extra" revision="ed8c0a7cf8ad14ca6a6c1dcab4d9f936fcd59bdf" />
 
-  <project name="EvgeniiDidin/meta-agl" path="meta-agl" remote="github" revision="2fa5829e1562b52d917377ab296021ac4234bcb2"/>
+  <project name="EvgeniiDidin/meta-agl" path="meta-agl" remote="github" revision="cb9119cd8d6b54e7602f45db0b52020c44c11de0"/>
   <!-- Porter specific things. -->
   <project name="AGL/meta-renesas" path="meta-renesas" />
 
@@ -89,7 +89,7 @@
   <project name="kraj/meta-altera" path="meta-altera" remote="github" revision="094f4c84da21e199134056f41dcf69f92cacdbd9" upstream="rocko"/>
 
   <!-- Synopsys HSDK platform -->
-  <project name="EvgeniiDidin/meta-synopsys" path="meta-synopsys" remote="github" revision="29faeb00bbecd999ddfe09abc4095e0c8ba95beb"/>
+  <project name="EvgeniiDidin/meta-synopsys" path="meta-synopsys" remote="github" revision="4ea00f94924323ac03e298964376acd1f5e2ff6b"/>
 
   <!-- Image Security Analysis FrameWork (isafw) -->
   <!-- try master or disable -->
