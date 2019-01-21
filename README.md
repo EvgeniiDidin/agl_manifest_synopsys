@@ -105,7 +105,7 @@ The HVAC application is used for automotive climate control. Currently devices l
 
 ### Navigation
 The Navigation application can simulate automotive driving on map. All movement changes are accompanied by the sound of a voice assistant. This application requires navigation data, which is not provided by AGL build system.
-Download navigation data from [navi_data](agl.wismobi.com/data/japan_TR9/navi_data.tar.gz),
+Download navigation data from [navi_data](http://agl.wismobi.com/data/japan_TR9/navi_data.tar.gz),
 then unpack this archive and put **navi_data** directory on /root partition in **/home/** direcotory
 Usage:
 1) Make a log click in some place of the map (similar to finger tap).
